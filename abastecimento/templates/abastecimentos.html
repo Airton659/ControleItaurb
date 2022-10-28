@@ -1,7 +1,27 @@
-{% extends 'base.html' %}
-
 {% load static %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Título -->
+    <title>Controle Abastecimento - Itaurb</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon1.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'site.css' %}">
+
+</head>
+
+<body>
+
 
     <!-- Preloader -->
     <div id="preloader">
@@ -99,8 +119,8 @@
         <div >
             <div>              
                 <!-- Single Best Receipe Area -->
-                <div align=center>
-                    <table border ='1' width = '80%' >
+                <div style="padding: 1%;">                   
+                    <table border ='1'  id="id_da_tabela">
                         <thead>
                             <tr align=center>
                                 <th>Data de Abastecimento</th>
@@ -112,7 +132,7 @@
                                 <th>Combustivel</th>
                                 <th>Usuario de criação</th>
                                 <th>Data de Registro</th>
-                            </tr>  
+                            </tr>                          
                         </thead>
                         <tbody>
                             {% if abastecimentos %}
@@ -134,7 +154,6 @@
                         </tbody>
                     </table>
                 </div> 
-                
             </div>
         </div>
     </section>
@@ -154,4 +173,40 @@
     </footer>
     <!-- ##### Footer Area Start ##### -->
 
-    {% endblock%}
+   <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#id_da_tabela').DataTable({
+                paging: false,
+                ordering: true,
+                info: true,
+                language: {
+                    decimal: ',',
+                    thousands: '.',
+                    lengthMenu: 'Mostrando _MENU_ registros por página',
+                    zeroRecords: 'Nada encontrado',
+                    info: 'Mostrando Página _PAGE_ de _PAGES_',
+                    infoEmpty: 'Nenhum registro disponível',
+                    infoFiltered: '(Filtrado de _MAX_ registros totais)',
+                }, 
+                               
+            });
+                    
+        } );
+        
+    </script>
+</body>
+
+</html>
