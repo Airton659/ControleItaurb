@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'abastecimento',
     'pessoas',
-    'usuarios',
+    'usuarios', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

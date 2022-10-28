@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Preloader -->
+<div id="preloader">
+   <i class="circle-preloader"></i>
+   <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+</div>
+
+<!-- Navbar Area -->
+<div class="delicious-main-menu">
+    <div class="classy-nav-container breakpoint-off">
+        <div class="container">
+            <!-- Menu -->
+            <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href=""><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                     <!-- Nav Start -->
+                <div class="classynav">
+                    <ul>                                                             
+                        <ul>
+                            <li><a href="{% url 'veiculos' %}">Veiculos</a></li> 
+                            <li><a href="{% url 'logout' %}">Logout</a></li>                               
+                        </ul>
+                                                       
+                    </ul>                             
+                       
+
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- ##### Contact Form Area Start ##### -->
+<div class="contact-area section-padding-0-80">
+   <div class="container">
+       <div class="row">
+           <div class="col-12">
+               <div class="section-heading">
+                   <h3>Adicione o abastecimento</h3>
+                   
+               </div>
+           </div>           
+       </div>
+   
+       <div class="row">
+           <div class="col-12">
+           <p>Todos os campos são obrigatórios</p>
+               <div class="contact-form-area">
+                   <form action="{% url 'abastecimento' %}" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                        
+                       <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="placa"><b>Veiculo</b></label>
+                                <input list="placa" name="placa" class="form-control" required>
+                                    <datalist id="placa">    
+                                        {% for veiculo in veiculos %}                        
+                                        <option value={{veiculo.placa}}></option>
+                                        {% endfor %}
+                                    </datalist> 
+                            </div> 
+                           <div class="col-12 col-lg-12">
+                               <label for="km"><b>Quilometragem</b></label>
+                               <input type="text" id="km" class="form-control" name="km" placeholder="Ex. 1234567.89" required>
+                           </div>
+                           <div class="col-12 col-lg-12">
+                                <label for="litros"><b>Litros</b></label>
+                                <input type="text" id="litros" class="form-control" name="litros" placeholder="Ex. 100" required>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label for="valor"><b>Valor</b></label>
+                                <input type="text" id="valor" class="form-control" name="valor" placeholder="Ex. 100,00" required>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label for="posto"><b>Posto</b></label>
+                                <input type="text" id="posto" class="form-control" name="posto" placeholder="Ex. Petrobras" required>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label for="motorista"><b>Motorista</b></label>
+                                <input type="text" id="motorista" class="form-control" name="motorista" placeholder="Ex. José Airton" required>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label for="combustivel"><b>Combustível</b></label>
+                                <input type="text" id="combustivel" class="form-control" name="combustivel" placeholder="Ex. Gasolina" required>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <label for="data_abastecimento"><b>Data de Abastecimento</b></label>
+                                <input type="date" id="data_abastecimento" class="form-control" name="data_abastecimento" placeholder="Ex. Gasolina" required>
+                            </div>           
+                           
+                           <div class="col-12 text-center">
+                               <button class="btn delicious-btn mt-30" type="submit">Criar sua receita</button>
+                           </div>
+                           
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+ 
+{% endblock %}
