@@ -5,7 +5,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
-        <img src="img/core-img/hamburger.png" alt="">
+        <img src="img/core-img/hamburger1.png" alt="">
     </div>
 
     <!-- Search Wrapper -->
@@ -52,7 +52,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="{% url 'veiculos' %}"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="{% url 'veiculos' %}"><img src="{% static 'img/core-img/logo1.png' %}" alt="" width="180px" ></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -116,11 +116,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="receipe-slider owl-carousel">
-                        {% if veiculo.foto == '' %}
+                        <!-- {% if veiculo.foto == '' %}
                             <img src="{% static 'img/bg-img/tomate_banner.jpg' %}">
                         {% else %}
                             <img src="{{veiculo.foto.url}}" alt="">
-                        {% endif %}                        
+                        {% endif %}                         -->
                     </div>
                 </div>
             </div>

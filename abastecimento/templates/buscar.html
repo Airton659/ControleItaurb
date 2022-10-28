@@ -33,23 +33,11 @@
                 <div class="row h-100 align-items-center justify-content-between">
                     <!-- Breaking News -->
                     <div class="col-12 col-sm-6">
-                        <div class="breaking-news">
-                            <div id="breakingNewsTicker" class="ticker">
-                                <ul>
-                                    <li><a href="">Boas vindas!</a></li>
-                                    <li><a href="">As melhores receitas</a></li>
-                                    <li><a href="">Você encontra aqui!</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h5> Bem vindo!</h5>                        
                     </div>
 
                     <!-- Top Social Info -->
-                    <div class="col-12 col-sm-6">
-                        <div class="top-social-info text-right">
-                            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </div>
+                    <div class="col-12 col-sm-6">                        
                     </div>
                 </div>
             </div>
@@ -63,7 +51,8 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="{% url 'index' %}"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                        <a class="nav-brand" href="{% url 'veiculos' %}"><img src="{% static 'img/core-img/logo1.png' %}" alt="" width="180px" ></a>
+
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -79,10 +68,16 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav">                             
+                             <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>                                                             
+                                <li><a href="{% url 'logout' %}">Logout</a></li> 
+                                <li><a href="{% url 'abastecimento' %}">Novo Abastecimento</a></li> 
+                                                               
+                            </ul>                             
                                 <!-- Formulario de busca -->
                                 <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <i class="fa fa-search" aria-hidden="true">         BUSCA</i>
                                 </div>
                                 <!-- Formulario de busca -->
 
@@ -105,25 +100,26 @@
                 <!-- Single Best Receipe Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        {% if veiculo.foto == '' %}
-                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                        <!-- {% if veiculo.foto == '' %}
+                        <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" >
                         {% else %}
-                        <img src="{{veiculo.foto.url}}" alt="">
-                        {% endif %}
+                        <img src="{{veiculo.foto.url}}" alt="" >
+                        {% endif %} -->
                         <div class="receipe-content">
                             <a href={% url 'veiculo' veiculo.id %}>
-                                <h5>{{veiculo.placa}}</h5>
+                                <h5>{{veiculo.placa}}</h5>                            
                             </a>
+
+                            
                         </div>
                     </div>
                 </div> 
                 {% endfor %}
                 {% else %}
-                <div class="col-12 col-sm-6 col-lg-4">  
-                    <p>Veiculo não encontrado</p>
-                </div>
                 {% endif %}
-            </div>
+            </div>          
+
+
         </div>
     </section>
     <!-- ##### Best Receipe Area End ##### -->
@@ -132,13 +128,7 @@
     <footer class="footer-area">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
-                    <!-- Footer Social Info -->
-                    <div class="footer-social-info text-right">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </div>
-                    <!-- Footer Logo -->
+                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">                 
                     <div class="footer-logo">
                         <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
                     </div>

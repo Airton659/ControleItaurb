@@ -13,7 +13,7 @@ urlpatterns = [
     path('abastecimentos', views.abastecimentos, name='abastecimentos'),
     path('manutencoes', views.manutencoes, name='manutencoes'),
     path('abastecimento', views.adiciona_abastecimento, name='abastecimento'),    
-    path('<int:veiculo_id>/abastecimentos', views.busca_abastecimentos, name='busca_abastecimentos'),
-    path('manutencao', views.adiciona_manutencao, name='manutencao'),    
+    path('<int:veiculo_id>/abastecimentos', views.busca_abastecimentos, name='busca_abastecimentos'),    
+    # path('manutencao', views.adiciona_manutencao, name='manutencao'),    
     # path('<int:veiculo_id>/manutencoes', views.busca_manutencoes, name='busca_manutencoes'),
     ]
