@@ -31,9 +31,11 @@ def veiculo(request, veiculo_id):
 
 def abastecimentos(request):    
     abastecimentos = Abastecimento.objects.order_by('-data_abastecimento')
+    veiculos = Veiculo.objects.filter(id=abastecimentos.placa_id)
 
     dados = {
-        'abastecimentos': abastecimentos
+        'abastecimentos': abastecimentos,
+        'veiculos': veiculos
     }
     if request.user.is_authenticated: 
         return render(request, 'abastecimentos.html', dados)
