@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from .models import Abastecimento, Veiculo, Manutencao
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 
 
 
@@ -17,7 +17,7 @@ def veiculos(request):
     }
     if request.user.is_authenticated: 
         return render(request, 'veiculos.html', dados)
-    else: 
+    else:        
         return redirect('index')
 
 def veiculo(request, veiculo_id):
@@ -103,7 +103,8 @@ def adiciona_abastecimento(request):
         veiculo = get_object_or_404(Veiculo, placa=placa)
         user = get_object_or_404(User, pk=request.user.id)        
         abastecimento = Abastecimento.objects.create(usuario_de_criacao= user, km=km, litros=litros, valor=valor, posto=posto, motorista=motorista, combustivel=combustivel, placa_id=veiculo.id, data_abastecimento=data_abastecimento)     
-        abastecimento.save()        
+        abastecimento.save()
+        messages.success(request, 'Abastecimento registrado com sucesso')        
         return redirect('abastecimento')
     else :
         return render(request, 'abastecimento.html', dados)
@@ -212,6 +213,7 @@ def login(request):
             auth.login(request, user)
             print('login realizado com sucesso')
             return redirect('veiculos')
+    messages.error(request, 'Usuário não autenticado') 
     return render(request,'index.html' )
 
 def logout(request):
