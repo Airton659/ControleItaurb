@@ -26,12 +26,13 @@ class Veiculo(models.Model):
         return self.placa
 
 
+
 class Abastecimento(models.Model):
     placa = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     data_registro = models.DateTimeField(default = datetime.now, blank = False)    
-    km = models.FloatField()
-    litros = models.FloatField()
-    valor = models.FloatField()
+    km = models.CharField(max_length=200)
+    litros = models.CharField(max_length=200)
+    valor = models.CharField(max_length=200)
     posto = models.CharField(max_length=200)
     motorista = models.CharField(max_length=200)
     combustivel = models.CharField(max_length=200)
@@ -46,11 +47,7 @@ class Manutencao(models.Model):
     usuario_de_criacao = models.ForeignKey(User, on_delete=models.CASCADE)
     data_registro = models.DateTimeField(default = datetime.now, blank = False)  
 
-class Combustivel(models.Model):
-    nome = models.CharField(max_length=200)
-    def __str__(self):
-        return self.nome
-    
+
 
 
     

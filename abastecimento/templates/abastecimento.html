@@ -96,7 +96,11 @@
                             </div>
                             <div class="col-12 col-lg-12">
                                 <label for="posto"><b>Posto</b></label>
-                                <input type="text" id="posto" class="form-control" name="posto" placeholder="Ex. Petrobras" required>
+                                <input list="posto" class="form-control" name="posto" required>
+                                    <datalist id="posto">
+                                        <option value="Posto Areão (Itabira)"></option>
+                                        <option value="Auto Posto Ipoema"></option>                                       
+                                    </datalist>
                             </div>
                             <div class="col-12 col-lg-12">
                                 <label for="motorista"><b>Motorista</b></label>
@@ -104,7 +108,12 @@
                             </div>
                             <div class="col-12 col-lg-12">
                                 <label for="combustivel"><b>Combustível</b></label>
-                                <input type="text" id="combustivel" class="form-control" name="combustivel" placeholder="Ex. Gasolina" required>
+                                <input list="combustivel" class="form-control" name="combustivel" required>
+                                    <datalist id="combustivel">
+                                        <option value="Gasolina Comum"></option>
+                                        <option value="Diesel - S10"></option>
+                                        <option value="Diesel - S500"></option>
+                                    </datalist>
                             </div>
                            
                             <div class="col-12 col-lg-12">
