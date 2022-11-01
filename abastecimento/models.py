@@ -45,6 +45,11 @@ class Manutencao(models.Model):
     itens = models.TextField()
     usuario_de_criacao = models.ForeignKey(User, on_delete=models.CASCADE)
     data_registro = models.DateTimeField(default = datetime.now, blank = False)  
+
+class Combustivel(models.Model):
+    nome = models.CharField(max_length=200)
+    def __str__(self):
+        return self.nome
     
 
 

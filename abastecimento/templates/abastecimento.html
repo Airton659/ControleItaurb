@@ -79,7 +79,7 @@
                                     <datalist id="placa">    
                                         {% for veiculo in veiculos %}                        
                                         <option value={{veiculo.placa}}></option>
-                                        {% endfor %}
+                                        {% endfor %} 
                                     </datalist> 
                             </div> 
                            <div class="col-12 col-lg-12">
@@ -106,6 +106,7 @@
                                 <label for="combustivel"><b>Combustível</b></label>
                                 <input type="text" id="combustivel" class="form-control" name="combustivel" placeholder="Ex. Gasolina" required>
                             </div>
+                           
                             <div class="col-12 col-lg-12">
                                 <label for="data_abastecimento"><b>Data de Abastecimento</b></label>
                                 <input type="date" id="data_abastecimento" class="form-control" name="data_abastecimento" placeholder="Ex. Gasolina" required>

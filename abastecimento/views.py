@@ -42,6 +42,8 @@ def abastecimentos(request):
     else: 
         return redirect('index')
 
+
+
 def abastecimento(request, abastecimento_id):
     abastecimento = get_object_or_404(Abastecimento, pk=abastecimento_id)
 
@@ -50,6 +52,18 @@ def abastecimento(request, abastecimento_id):
     }
 
     return render(request, 'receita.html', abastecimento_a_exibir)
+
+def todos_abastecimentos(request):    
+    abastecimentos = Abastecimento.objects.order_by('-data_abastecimento')    
+
+    dados = {
+        'abastecimentos': abastecimentos,
+        
+    }
+    if request.user.is_authenticated: 
+        return render(request, 'abastecimentos.html', dados)
+    else: 
+        return redirect('index')
 
 def manutencoes(request):    
     manutencoes = Manutencao.objects.order_by('-data')
@@ -203,4 +217,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('index')
+
+
+
 
